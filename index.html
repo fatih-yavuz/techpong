@@ -56,6 +56,27 @@
             filter: drop-shadow(0 2px 15px rgba(46, 204, 113, 0.3));
         }
 
+        .subheader {
+            font-size: 1.2rem;
+            color: var(--text-color);
+            opacity: 0.9;
+            margin-top: 1rem;
+            letter-spacing: 0.5px;
+            line-height: 1.8;
+            background: rgba(26, 26, 26, 0.8);
+            padding: 1rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .subheader:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--hover-shadow);
+            opacity: 1;
+        }
+
         .profile::before {
             content: '';
             position: absolute;
@@ -81,18 +102,18 @@
         }
 
         .language-switch {
-            position: fixed;
-            bottom: 1rem;
-            left: 50%;
-            transform: translateX(-50%);
             display: flex;
             gap: 0.5rem;
-            z-index: 100;
-            background: rgba(26, 26, 26, 0.8);
+            justify-content: center;
+            margin-top: 2rem;
             padding: 0.5rem;
             border-radius: 25px;
+            background: rgba(26, 26, 26, 0.8);
             backdrop-filter: blur(10px);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .language-btn {
@@ -236,51 +257,52 @@
     </style>
 </head>
 <body>
-    <div class="language-switch">
-        <button class="language-btn active" onclick="changeLanguage('en')">EN</button>
-        <button class="language-btn" onclick="changeLanguage('tr')">TR</button>
-    </div>
-
     <div class="container">
         <div class="profile">
             <img src="logo.svg" alt="TechPong Logo">
+            <div class="subheader">📍 Amsterdam 📷 IRL 🏓 Ping Pong 🏋️ Sports 👨‍💻 Tech Geek</div>
         </div>
 
         <h2 class="section-title" data-en="Watch Live" data-tr="Canlı İzle"></h2>
         <div class="stream-links">
-            <a href="#" class="social-link stream-link">
+            <a href="https://twitch.tv/TechPong" class="social-link stream-link" target="_blank" rel="noopener noreferrer">
                 <i class="fab fa-twitch"></i>
-                <span data-en="Twitch" data-tr="Twitch'te İzle"></span>
+                <span data-en="Twitch" data-tr="Twitch"></span>
             </a>
-            <a href="#" class="social-link stream-link">
+            <a href="https://kick.com/TechPong" class="social-link stream-link" target="_blank" rel="noopener noreferrer">
                 <i class="fas fa-play"></i>
-                <span data-en=" Kick" data-tr="Kick'te İzle"></span>
+                <span data-en=" Kick" data-tr="Kick"></span>
             </a>
-            <a href="#" class="social-link stream-link">
+            <a href="https://youtube.com/@TechPong" class="social-link stream-link" target="_blank" rel="noopener noreferrer">
                 <i class="fab fa-youtube"></i>
-                <span data-en="YouTube" data-tr="YouTube'da İzle"></span>
+                <span data-en="YouTube" data-tr="YouTube"></span>
             </a>
-            <a href="#" class="social-link stream-link">
+            <a href="https://twitter.com/TechPong_" class="social-link stream-link" target="_blank" rel="noopener noreferrer">
                 <i class="fab fa-x-twitter"></i>
-                <span data-en="Twitter" data-tr="X'te İzle"></span>
+                <span data-en="Twitter" data-tr="Twitter"></span>
             </a>
         </div>
 
         <h2 class="section-title" data-en="Social Media" data-tr="Sosyal Medya"></h2>
         <div class="links-container">
-            <a href="#" class="social-link">
+            <a href="https://tiktok.com/@TechPong_" class="social-link" target="_blank" rel="noopener noreferrer">
                 <i class="fab fa-tiktok"></i>
-                <span data-en="Follow on TikTok" data-tr="TikTok'ta Takip Et"></span>
+                <span data-en="TikTok" data-tr="TikTok"></span>
             </a>
-            <a href="#" class="social-link">
+            <a href="https://instagram.com/TechPong_" class="social-link" target="_blank" rel="noopener noreferrer">
                 <i class="fab fa-instagram"></i>
-                <span data-en="Follow on Instagram" data-tr="Instagram'da Takip Et"></span>
+                <span data-en="Instagram" data-tr="Instagram"></span>
             </a>
-            <a href="#" class="social-link">
+            <a href="https://discord.gg/u7R9VzT3m6" class="social-link" target="_blank" rel="noopener noreferrer">
                 <i class="fab fa-discord"></i>
-                <span data-en="Join Discord Server" data-tr="Discord Sunucusuna Katıl"></span>
+                <span data-en="Discord" data-tr="Discord"></span>
             </a>
         </div>
+    </div>
+
+    <div class="language-switch" style="visibility: hidden;">
+        <button class="language-btn active" onclick="changeLanguage('en')">EN</button>
+        <button class="language-btn" onclick="changeLanguage('tr')">TR</button>
     </div>
 
     <script>
