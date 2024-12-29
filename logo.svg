@@ -19,9 +19,17 @@
   <text x="80" y="65" font-family="Arial, sans-serif" font-weight="700" font-size="48" letter-spacing="2" fill="white" filter="url(#textShadow)">
     TECHP
   </text>
-  <!-- O -->
+  <!-- O (Ping Pong Ball) -->
+  <defs>
+    <pattern id="pingPongPattern" x="0" y="0" width="8" height="8" patternUnits="userSpaceOnUse">
+      <circle cx="4" cy="4" r="0.5" fill="#eee" opacity="0.5"/>
+    </pattern>
+  </defs>
   <g filter="url(#textShadow)">
-    <circle cx="275" cy="50" r="24" fill="white"/>
+    <circle cx="275" cy="50" r="20" fill="white"/>
+    <circle cx="275" cy="50" r="20" fill="url(#pingPongPattern)"/>
+    <!-- Highlight effect -->
+    <circle cx="270" cy="45" r="8" fill="white" opacity="0.3"/>
   </g>
   <!-- NG text -->
   <text x="300" y="65" font-family="Arial, sans-serif" font-weight="700" font-size="48" letter-spacing="2" fill="white" filter="url(#textShadow)">
