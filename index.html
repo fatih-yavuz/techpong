@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechPong - Social Links</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #6441a5, #2ecc71);
+            --secondary-gradient: linear-gradient(135deg, #2d3436, #636e72);
+            --background-color: #0a0a0a;
+            --text-color: #ffffff;
+            --card-bg: #1a1a1a;
+            --hover-shadow: 0 10px 20px rgba(46, 204, 113, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            min-height: 100vh;
+            background: radial-gradient(circle at top, #1a1a1a, var(--background-color));
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+
+        .profile {
+            margin-bottom: 1rem;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .profile img {
+            width: 300px;
+            height: auto;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 2px 10px rgba(46, 204, 113, 0.2));
+            transition: all 0.3s ease;
+        }
+
+        .profile img:hover {
+            transform: scale(1.02);
+            filter: drop-shadow(0 2px 15px rgba(46, 204, 113, 0.3));
+        }
+
+        .profile::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 200px;
+            background: var(--primary-gradient);
+            border-radius: 50%;
+            filter: blur(50px);
+            opacity: 0.3;
+            z-index: -1;
+        }
+
+        .profile h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 10px rgba(46, 204, 113, 0.2);
+        }
+
+        .language-switch {
+            position: fixed;
+            bottom: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0.5rem;
+            z-index: 100;
+            background: rgba(26, 26, 26, 0.8);
+            padding: 0.5rem;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .language-btn {
+            background: none;
+            border: 2px solid transparent;
+            color: var(--text-color);
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            background: var(--card-bg);
+        }
+
+        .language-btn.active {
+            background: var(--primary-gradient);
+            transform: scale(1.05);
+        }
+
+        .section-title {
+            margin: 1.5rem 0 1.5rem;
+            font-size: 2rem;
+            color: #2ecc71;
+            text-shadow: 0 2px 10px rgba(46, 204, 113, 0.2);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: var(--primary-gradient);
+            border-radius: 3px;
+        }
+
+        .links-container {
+            display: grid;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .stream-links {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.2rem;
+            padding: 0.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 1200px) {
+            .stream-links {
+                grid-template-columns: repeat(2, 1fr);
+                max-width: 800px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .stream-links {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                gap: 0.8rem;
+            }
+
+            .profile {
+                margin-bottom: 0.5rem;
+                padding: 1rem;
+            }
+
+            .profile h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+                margin: 1rem 0 1rem;
+            }
+
+            .container {
+                padding: 1.5rem 1rem;
+            }
+
+            .links-container {
+                gap: 0.8rem;
+            }
+        }
+
+        .social-link {
+            background: var(--card-bg);
+            padding: 1rem 1.5rem;
+            border-radius: 15px;
+            text-decoration: none;
+            color: var(--text-color);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .stream-link {
+            background: var(--primary-gradient);
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
+        }
+
+        .social-link:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--hover-shadow);
+        }
+
+        .social-link:hover::before {
+            transform: translateX(100%);
+        }
+
+        .social-link i {
+            font-size: 1.5rem;
+            min-width: 24px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="language-switch">
+        <button class="language-btn active" onclick="changeLanguage('en')">EN</button>
+        <button class="language-btn" onclick="changeLanguage('tr')">TR</button>
+    </div>
+
+    <div class="container">
+        <div class="profile">
+            <img src="logo.svg" alt="TechPong Logo">
+        </div>
+
+        <h2 class="section-title" data-en="Watch Live" data-tr="Canlı İzle"></h2>
+        <div class="stream-links">
+            <a href="#" class="social-link stream-link">
+                <i class="fab fa-twitch"></i>
+                <span data-en="Twitch" data-tr="Twitch'te İzle"></span>
+            </a>
+            <a href="#" class="social-link stream-link">
+                <i class="fas fa-play"></i>
+                <span data-en=" Kick" data-tr="Kick'te İzle"></span>
+            </a>
+            <a href="#" class="social-link stream-link">
+                <i class="fab fa-youtube"></i>
+                <span data-en="YouTube" data-tr="YouTube'da İzle"></span>
+            </a>
+            <a href="#" class="social-link stream-link">
+                <i class="fab fa-x-twitter"></i>
+                <span data-en="Twitter" data-tr="X'te İzle"></span>
+            </a>
+        </div>
+
+        <h2 class="section-title" data-en="Social Media" data-tr="Sosyal Medya"></h2>
+        <div class="links-container">
+            <a href="#" class="social-link">
+                <i class="fab fa-tiktok"></i>
+                <span data-en="Follow on TikTok" data-tr="TikTok'ta Takip Et"></span>
+            </a>
+            <a href="#" class="social-link">
+                <i class="fab fa-instagram"></i>
+                <span data-en="Follow on Instagram" data-tr="Instagram'da Takip Et"></span>
+            </a>
+            <a href="#" class="social-link">
+                <i class="fab fa-discord"></i>
+                <span data-en="Join Discord Server" data-tr="Discord Sunucusuna Katıl"></span>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        function changeLanguage(lang) {
+            document.querySelectorAll('.language-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.textContent.toLowerCase() === lang.toLowerCase()) {
+                    btn.classList.add('active');
+                }
+            });
+
+            document.querySelectorAll('[data-' + lang + ']').forEach(element => {
+                element.textContent = element.getAttribute('data-' + lang);
+            });
+        }
+
+        // Detect browser language and initialize when the page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get browser language
+            const browserLang = navigator.language || navigator.userLanguage;
+            
+            // Check if browser language starts with 'en'
+            if (browserLang.startsWith('en')) {
+                changeLanguage('en');
+            } else {
+                // Fallback to Turkish for all other languages
+                changeLanguage('tr');
+            }
+        });
+    </script>
+</body>
+</html> 
